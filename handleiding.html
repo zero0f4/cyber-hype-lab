@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handleiding — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">Handleiding</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">Handleiding</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">Handleiding</div>
+        <div class="page-subtitle">Wat is Cyber Hype Lab? · vier generators · privacy</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+    <div class="content-area">
+
+      <div class="manual-content">
+        <section class="manual-section">
+          <h2><span class="sec-num">01</span> Wat is Cyber Hype Lab?</h2>
+          <p>Cyber Hype Lab (CHL) is een satire-tool die de marketing-mythen, vendor-pitches en post-mortem-clichés van de cyber-industrie systematisch belachelijk maakt — met respect voor het onderliggende vak, maar zonder respect voor de hype.</p>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">02</span> De negen generators</h2>
+          <p>De CHL-generators zijn gegroepeerd in vijf logische secties:</p>
+
+          <h3 style="margin-top:14px">🎲 Bingo</h3>
+          <table class="section-table">
+            <thead><tr><th style="width:200px">Generator</th><th>Wat doet het?</th></tr></thead>
+            <tbody>
+              <tr><td><a href="bingo.html" style="color:var(--accent)"><b>Bullshit Bingo</b></a></td><td>5×5 kaart met 120+ buzzwoorden (RSAC/Gartner/Forrester + 43 typisch Nederlandse). Klikbaar afstrepen, schud-knop, print-friendly. FREE space = <code>ZERO0F4</code>.</td></tr>
+              <tr><td><a href="patch-excuses.html" style="color:var(--accent)"><b>Patch-excuses Bingo</b></a></td><td>Variant met 40+ "waarom hebben we niet gepatched?"-clichés. Voor je volgende vulnerability-review-meeting.</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style="margin-top:14px">📣 Vendor-marketing</h3>
+          <table class="section-table">
+            <thead><tr><th style="width:200px">Generator</th><th>Wat doet het?</th></tr></thead>
+            <tbody>
+              <tr><td><a href="vendor-slogan.html" style="color:var(--accent)"><b>Slogan-generator</b></a></td><td>Random vendor-pitch in één klik (16 × 16 × 12 × 9 = ~331.000 unieke combinaties).</td></tr>
+              <tr><td><a href="product-naam.html" style="color:var(--accent)"><b>Product-naam-generator</b></a></td><td>"AegisShield Pro Cloud" + tagline + nep-startup-pitch.</td></tr>
+              <tr><td><a href="conference-talk.html" style="color:var(--accent)"><b>Conference-talk-titel</b></a></td><td>RSAC/Black Hat/Gartner-stijl keynote-titel + speaker-tag.</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style="margin-top:14px">👤 Personen</h3>
+          <table class="section-table">
+            <thead><tr><th style="width:200px">Generator</th><th>Wat doet het?</th></tr></thead>
+            <tbody>
+              <tr><td><a href="apt-namen.html" style="color:var(--accent)"><b>APT-naamgenerator</b></a></td><td>CrowdStrike-stijl APT-namen ("Sophisticated Glittery Bear") met Microsoft-storm-alias en confidence-niveau.</td></tr>
+              <tr><td><a href="ciso-excuses.html" style="color:var(--accent)"><b>CISO-excuses-generator</b></a></td><td>Random Nederlandstalig incident-statement uit zes componenten.</td></tr>
+              <tr><td><a href="linkedin-post.html" style="color:var(--accent)"><b>LinkedIn-post</b></a></td><td>Hook + insight + buzzword-cascade + emoji-staircase + hashtags.</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style="margin-top:14px">🎬 Pop culture</h3>
+          <table class="section-table">
+            <thead><tr><th style="width:200px">Generator</th><th>Wat doet het?</th></tr></thead>
+            <tbody>
+              <tr><td><a href="scifi.html" style="color:var(--accent)"><b>Sci-fi Cyber-Quote</b></a></td><td>Star Wars · Star Trek · Firefly · Spaceballs — vermengd met cyber-jargon. "I find your lack of MFA disturbing."</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">03</span> Privacy &amp; aansprakelijkheid</h2>
+          <p>Alles draait lokaal in je browser, geen tracking, geen cookies. Alle gelijkenissen met bestaande producten, threat actors of incidenten zijn karikaturaal bedoeld. Niet citeren als bron in serieuze rapporten, audits of klantcommunicatie — daar is de CFM voor.</p>
+        </section>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+</body>
+</html>

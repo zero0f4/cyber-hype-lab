@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Hype Lab (CHL)</title>
+  <meta name="description" content="Cyber Hype Lab — vendor-satire generators voor RSAC, Gartner-keynotes en LinkedIn-bingo">
+  <meta name="author" content="zero0f4">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+  <style>
+    .home-hero { text-align: center; padding: 48px 36px 28px; background: var(--bg-surface); border-bottom: 1px solid var(--border); }
+    .home-hero .hero-icon { font-size: 48px; color: var(--accent); margin-bottom: 12px; }
+    .home-hero h1 { font-size: 28px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
+    .home-hero .hero-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; font-family: var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; }
+    .home-tagline { max-width: 680px; margin: 16px auto 0; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .tile-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 14px; max-width: 1100px; margin: 32px auto 24px; padding: 0 28px; }
+    .tile { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-decoration: none; color: var(--text-primary); transition: all .15s; }
+    .tile:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .tile .tile-head { display: flex; align-items: center; gap: 10px; }
+    .tile .tile-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent-glow); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+    .tile .tile-title { font-size: 14px; font-weight: 600; }
+    .tile .tile-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+    .tile .tile-tag { display: inline-block; font-size: 9px; padding: 2px 7px; border-radius: 999px; background: var(--bg-elevated); color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+    .home-disclaimer { margin: 32px auto 16px; max-width: 800px; padding: 14px 18px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.45); border-left: 3px solid var(--accent); border-radius: var(--radius); font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+    .home-disclaimer strong { color: var(--accent); }
+    .home-footer { text-align: center; font-size: 11px; color: var(--text-muted); padding: 24px; }
+    .home-link-back { display: inline-block; margin-top: 14px; padding: 6px 12px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); font-size: 12px; color: var(--text-secondary); text-decoration: none; }
+    .home-link-back:hover { border-color: var(--accent); color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">Hype Lab</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section class="home-hero">
+      <div class="hero-icon" data-icon="flag" data-icon-size="48"></div>
+      <h1>Cyber Hype Lab <span style="font-size:14px;font-family:var(--font-mono);color:var(--text-muted);font-weight:500;vertical-align:8px;margin-left:6px">(CHL)</span></h1>
+      <div class="hero-sub">Vendor satire · RSAC bingo · APT-namen op aanvraag</div>
+      <p class="home-tagline">
+        Met respect voor het vak en zonder respect voor de hype. <strong>Negen generators</strong> die de cyber-industrie systematisch belachelijk maken: bingo's, vendor-marketing, persoonlijkheden en pop culture. → <a href="waarom.html" style="color:var(--accent);font-weight:600">Waarom dit bestaat</a>
+      </p>
+    </section>
+
+    <div class="tile-grid">
+      <a class="tile" href="bingo.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="flag" data-icon-size="18"></div><div class="tile-title">Cyber Bullshit Bingo</div></div>
+        <div class="tile-desc">5×5 kaart met 120+ cyber-buzzwoorden (incl. typisch Nederlandse). Klikbaar afstrepen, schud, print.</div>
+        <span class="tile-tag">Print &amp; deel</span>
+      </a>
+      <a class="tile" href="vendor-slogan.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="flag" data-icon-size="18"></div><div class="tile-title">Vendor-slogan-generator</div></div>
+        <div class="tile-desc">Random vendor-pitch op één klik: AI-Powered Quantum-Ready XDR Suite at Unprecedented Scale.</div>
+        <span class="tile-tag">~331k combinaties</span>
+      </a>
+      <a class="tile" href="apt-namen.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="actor" data-icon-size="18"></div><div class="tile-title">APT-naamgenerator</div></div>
+        <div class="tile-desc">CrowdStrike-stijl APT-namen: "Sophisticated Glittery Bear" + Microsoft-alias + confidence-niveau.</div>
+        <span class="tile-tag">Naam-schema-tabel</span>
+      </a>
+      <a class="tile" href="ciso-excuses.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="flag" data-icon-size="18"></div><div class="tile-title">CISO-excuses-generator</div></div>
+        <div class="tile-desc">Random incident-statement in vendor-Nederlands — voor de eerstvolgende post-mortem of persbericht.</div>
+        <span class="tile-tag">6-componenten</span>
+      </a>
+      <a class="tile" href="patch-excuses.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="flag" data-icon-size="18"></div><div class="tile-title">Patch-excuses Bingo</div></div>
+        <div class="tile-desc">5×5 bingo: "legacy systeem", "vendor support eindigt", "change-freeze", "wachten op leverancier"...</div>
+        <span class="tile-tag">Bingo &amp; print</span>
+      </a>
+      <a class="tile" href="product-naam.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="flag" data-icon-size="18"></div><div class="tile-title">Product-naam-generator</div></div>
+        <div class="tile-desc">AegisShield Pro / SentinelGuard X / QuantumWatch Cloud — nieuwe vendor in 2 klikken (combineer met slogan).</div>
+        <span class="tile-tag">Vendor-marketing</span>
+      </a>
+      <a class="tile" href="conference-talk.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="template" data-icon-size="18"></div><div class="tile-title">Conference-talk-titel</div></div>
+        <div class="tile-desc">"Beyond the Perimeter: Why Your Zero Trust Journey is Failing in the Age of Agentic AI"</div>
+        <span class="tile-tag">RSAC/Black Hat</span>
+      </a>
+      <a class="tile" href="linkedin-post.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="eye" data-icon-size="18"></div><div class="tile-title">LinkedIn-post</div></div>
+        <div class="tile-desc">CISO-thought-leader-post: humblebrag + insight + buzzword-cascade + emoji-staircase + hashtags.</div>
+        <span class="tile-tag">Socials</span>
+      </a>
+      <a class="tile" href="scifi.html">
+        <div class="tile-head"><div class="tile-icon" data-icon="diamond" data-icon-size="18"></div><div class="tile-title">Sci-fi Cyber-Quote-generator</div></div>
+        <div class="tile-desc">Star Wars · Star Trek · Firefly · Spaceballs — vermengd met cyber-jargon. "I find your lack of MFA disturbing."</div>
+        <span class="tile-tag">Pop culture</span>
+      </a>
+    </div>
+
+    <div class="home-disclaimer">
+      <strong>⚠ Disclaimer</strong> — Pure parodie. Niet citeren in serieuze rapporten, audits of klantcommunicatie. Alle gelijkenissen met bestaande producten, threat actors of incidenten zijn karikaturaal.
+    </div>
+
+    <div class="home-footer">
+      Cyber Hype Lab v1.3 · by zero0f4 &middot; Build 2026-04-30 &middot; <a href="waarom.html" style="color:var(--accent);text-decoration:none">Waarom dit bestaat</a> &middot; <a href="changelog.html" style="color:var(--accent);text-decoration:none">Wijzigingsblad</a>
+    </div>
+  </main>
+</div>
+
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+</body>
+</html>

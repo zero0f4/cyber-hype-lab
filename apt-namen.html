@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APT-naamgenerator — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+  <style>
+    .sat-output { background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; min-height: 90px; font-size: 18px; line-height: 1.55; color: var(--text-primary); }
+    .sat-output.lead { font-size: 22px; font-weight: 600; line-height: 1.4; text-align: center; }
+    .sat-output.lead .meta { display: block; font-size: 12px; color: var(--text-muted); margin-top: 12px; font-family: var(--font-mono); font-weight: 400; letter-spacing: 0.04em; }
+    .sat-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .sat-history { margin-top: 14px; }
+    .sat-history li { font-size: 12px; padding: 3px 0; color: var(--text-secondary); }
+    .section-table { width:100%; border-collapse: collapse; font-size: 13px; }
+    .section-table th { text-align: left; padding: 8px; background: var(--bg-elevated); border-bottom: 2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color: var(--text-muted); }
+    .section-table td { padding: 8px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .satire-warn { font-size: 12px; color: var(--text-secondary); margin-bottom: 14px; padding: 10px 14px; background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.35); border-left: 3px solid #eab308; border-radius: var(--radius); }
+    .satire-warn strong { color: #eab308; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; margin-right: 6px; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">APT-naamgenerator</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">APT-naamgenerator</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">APT-naamgenerator</div>
+        <div class="page-subtitle">Klik en je bent vandaag CrowdStrike: random APT met dier-per-natie + Microsoft-alias + confidence</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+    <div class="content-area">
+      <div class="manual-content">
+
+        <section class="manual-section">
+          <h2><span class="sec-num">01</span> Klik en je bent vandaag CrowdStrike</h2>
+          <p>Random APT-naam volgens het bekende patroon: <code>[adjectief] + [dier per nationaliteit]</code>. Inclusief Microsoft-storm-alias, vermoed motief en confidence-niveau — voor het ware vendor-pitch-effect.</p>
+          <div class="sat-output lead" id="aptOut">Klik op "Nieuwe APT"</div>
+          <div class="sat-toolbar">
+            <button class="btn" id="gen"><span data-icon="cycle" data-icon-size="14"></span> Nieuwe APT</button>
+            <button class="btn" id="copy">Kopieer rapport</button>
+          </div>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">02</span> Eerder gespot</h2>
+          <ul id="hist" style="list-style:none;padding-left:0;margin:0"></ul>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">03</span> Het naam-schema (CrowdStrike-stijl)</h2>
+          <table class="section-table">
+            <thead><tr><th style="width:120px">Dier</th><th style="width:120px">Nationaliteit</th><th>Vermoed motief</th></tr></thead>
+            <tbody>
+              <tr><td><b>Bear</b></td><td>Russia (RU)</td><td>Espionage / influence-ops</td></tr>
+              <tr><td><b>Panda</b></td><td>China (CN)</td><td>Economisch + state espionage</td></tr>
+              <tr><td><b>Kitten</b></td><td>Iran (IR)</td><td>Regional disruption</td></tr>
+              <tr><td><b>Chollima</b></td><td>North Korea (KP)</td><td>Financial heist</td></tr>
+              <tr><td><b>Spider</b></td><td>Cybercrime</td><td>Ransomware-as-a-service</td></tr>
+              <tr><td><b>Tiger</b></td><td>India (IN)</td><td>Regional espionage</td></tr>
+              <tr><td><b>Crane</b></td><td>South Korea (KR)</td><td>Counter-intelligence</td></tr>
+              <tr><td><b>Buffalo</b></td><td>Vietnam (VN)</td><td>Economic intel</td></tr>
+              <tr><td><b>Jackal</b></td><td>Hacktivist</td><td>Narrative warfare</td></tr>
+              <tr><td><b>Wolverine</b></td><td>Onbevestigd</td><td>Opportunistisch</td></tr>
+              <tr><td><b>Hippo</b></td><td>Onbevestigd</td><td>"Onduidelijk maar sophisticated"</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:8px">Microsoft hanteert in plaats van dieren <b>weers­fenomenen</b>: Blizzard (RU state), Typhoon (CN), Sandstorm (IR), Sleet (KP), Tempest (crime), Tsunami (influence). De generator combineert beide.</p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</div>
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+
+<script>
+(function(){
+  const ADJ = ["Sophisticated","Persistent","Stealthy","Furious","Glittery","Velvet","Crimson","Midnight","Fluffy","Fanatic","Frosty","Brooding","Spectacular","Nocturnal","Charismatic","Mythical","Sneaky","Industrious","Drowsy","Unrelenting","Boisterous","Cosmic"];
+  const ANIMAL = [
+    {a:"Bear",     nat:"RU", motive:"espionage / influence ops"},
+    {a:"Panda",    nat:"CN", motive:"economic + state espionage"},
+    {a:"Kitten",   nat:"IR", motive:"regional disruption"},
+    {a:"Chollima", nat:"KP", motive:"financial heist"},
+    {a:"Spider",   nat:"crime", motive:"ransomware-as-a-service"},
+    {a:"Tiger",    nat:"IN", motive:"regional espionage"},
+    {a:"Crane",    nat:"KR", motive:"counter-intel"},
+    {a:"Buffalo",  nat:"VN", motive:"economic intel"},
+    {a:"Jackal",   nat:"hacktivist", motive:"narrative warfare"},
+    {a:"Wolverine",nat:"unattributed", motive:"opportunistic"},
+    {a:"Hippo",    nat:"unattributed", motive:"unclear, but sophisticated"}
+  ];
+  const STORM = ["Blizzard","Typhoon","Sandstorm","Sleet","Tempest","Tsunami","Cyclone","Squall","Drizzle"];
+  const CONFIDENCE = [
+    {l:"Low (single source, vendor blog)", c:"#94a3b8"},
+    {l:"Medium (overlap with prior cluster)", c:"#eab308"},
+    {l:"High (multi-source corroborated)", c:"#22c55e"}
+  ];
+  const out = document.getElementById('aptOut');
+  const hist = document.getElementById('hist');
+  const log = [];
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+  function render(){
+    const adj = pick(ADJ), an = pick(ANIMAL), st = pick(STORM), cf = pick(CONFIDENCE);
+    const name = adj + ' ' + an.a;
+    const ms = adj + ' ' + st;
+    out.innerHTML =
+      '"<span style="color:var(--accent)">' + name + '</span>" attributed to <b>' + an.nat + '</b><br>' +
+      '<span class="meta">Microsoft alias: ' + ms + ' &middot; Suspected motive: ' + an.motive + ' &middot; <span style="color:' + cf.c + '">Confidence: ' + cf.l + '</span></span>';
+    log.unshift(name + ' (' + an.nat + ', ' + cf.l.split(' ')[0] + ')');
+    if (log.length > 8) log.pop();
+    hist.innerHTML = log.map(l => '<li>· ' + l + '</li>').join('');
+  }
+  document.getElementById('gen').addEventListener('click', render);
+  document.getElementById('copy').addEventListener('click', () => {
+    const text = out.innerText;
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => {
+      const b = document.getElementById('copy'); const old = b.textContent; b.textContent = 'Gekopieerd ✓'; setTimeout(()=>b.textContent=old, 1500);
+    });
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>

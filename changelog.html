@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wijzigingsblad — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">Wijzigingsblad</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">Wijzigingsblad</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">Wijzigingsblad</div>
+        <div class="page-subtitle">Versies en wijzigingen</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+    <div class="content-area">
+
+      <style>
+        .cl-entry { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; margin-bottom: 18px; border-left: 3px solid var(--accent); }
+        .cl-entry.current { border-left-color: var(--green); }
+        .cl-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+        .cl-version { font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: var(--text-primary); }
+        .cl-entry.current .cl-version { color: var(--green); }
+        .cl-date { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); }
+        .cl-tag { font-size: 10px; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+        .cl-tag.now { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.35); }
+        .cl-section h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 10px 0 6px 0; font-weight: 600; }
+        .cl-section ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.7; color: var(--text-secondary); }
+        .cl-cat { display: inline-block; font-size: 10px; padding: 1px 7px; border-radius: 4px; font-family: var(--font-mono); margin-right: 6px; vertical-align: 1px; }
+        .cl-cat.feat { background: rgba(245,158,11,0.12); color: var(--accent); }
+      </style>
+      <div class="manual-content">
+        <div class="cl-entry current">
+          <div class="cl-head">
+            <span class="cl-version">v1.3</span>
+            <span class="cl-date">2026-04-30</span>
+            <span class="cl-tag now">Huidig</span>
+          </div>
+          <div class="cl-section">
+            <h4>Toegevoegd</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> <b>"Waarom dit bestaat"-pagina</b> — onderbouwd manifest over buzzword-inflatie, praters-vs-doeners, RSAC-paradox, vendor-marketing-economie en wat de échte doeners doen. Met statistieken en verwijzingen naar Schneier, Phil Venables, Kelly Shortridge, Daniel Miessler, CISO Series, Verizon DBIR.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>Defensie / cyber-warfare-buzzwoorden</b> toegevoegd aan Bullshit Bingo: 5th domain, Defend forward, Hunt forward, OODA loop, Kill web, JADC2, C5ISR, Defensie Cyber Commando, hybrid warfare, cognitive domain, persistent engagement, etc. Pool nu 160+ termen.</li>
+            </ul>
+            <h4>Verwijderd</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> <b>Persaankondiging-generator</b> verwijderd. Te veel overlap met de overige vendor-marketing-generators.</li>
+              <li><span class="cl-cat feat">FEAT</span> Cross-references naar de andere app verwijderd uit beide apps — CHL en CFM staan voortaan elk op zichzelf.</li>
+            </ul>
+            <h4>Service-worker</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> Bumped naar <code>cyber-hype-lab-v5</code>; <code>waarom.html</code> in pre-cache.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-entry">
+          <div class="cl-head">
+            <span class="cl-version">v1.2</span>
+            <span class="cl-date">2026-04-30</span>
+            <span class="cl-tag prev">Eerder</span>
+          </div>
+          <div class="cl-section">
+            <h4>Toegevoegd — vijf nieuwe generators</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> <b>Conference-talk-titel-generator</b> — RSAC/Black Hat/Gartner-stijl: prefix + topic + bijzin + speaker-tag.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>Vendor-product-naam-generator</b> — prefix + core + suffix + tagline + nep-startup-pitch.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>Persaankondiging-generator</b> — volledige PR met bedrijfsnaam, product, value-prop, Fortune-500-quote, CTO-quote en funding-paragraaf.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>Patch-excuses Bingo</b> — bingo-variant met 40+ "waarom hebben we niet gepatched?"-clichés. Print-friendly.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>LinkedIn-post-generator</b> — humblebrag-opener + insight + buzzword-cascade + emoji-staircase + hashtags.</li>
+            </ul>
+            <h4>Aangepast</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> Sidebar herstructureerd in vijf logische groepen: <em>Bingo · Vendor-marketing · Personen · Pop culture · Naslag</em>.</li>
+              <li><span class="cl-cat feat">FEAT</span> Home-tile-grid uitgebreid van 5 naar 10 tegels. Tagline aangepast naar "Tien generators".</li>
+              <li><span class="cl-cat feat">FEAT</span> Service-worker bumped naar <code>cyber-hype-lab-v3</code>.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-entry">
+          <div class="cl-head">
+            <span class="cl-version">v1.1</span>
+            <span class="cl-date">2026-04-30</span>
+            <span class="cl-tag prev">Eerder</span>
+          </div>
+          <div class="cl-section">
+            <h4>Toegevoegd</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> <b>Sci-fi Cyber-Quote-generator</b> — random quote uit 4 franchises (Star Wars / Star Trek / Firefly / Spaceballs) automatisch verrijkt met cyber-buzzwoorden, threat-actors, vendor-tools en aanvalstechnieken. ~45 templates totaal, gefilterd of mixed.</li>
+              <li><span class="cl-cat feat">FEAT</span> Filterknoppen per franchise + "Alle" voor random pick.</li>
+              <li><span class="cl-cat feat">FEAT</span> Service-worker bumped naar <code>cyber-hype-lab-v2</code>.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-entry">
+          <div class="cl-head">
+            <span class="cl-version">v1.0</span>
+            <span class="cl-date">2026-04-30</span>
+            <span class="cl-tag prev">Eerste release</span>
+          </div>
+          <div class="cl-section">
+            <h4>Afsplitsing</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> CHL als losse satire-tool gelanceerd: cyber-industrie-parodie in eigen app.</li>
+            </ul>
+            <h4>Generators</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> <b>Bullshit Bingo</b> — 5×5 kaart, 120+ buzzwoorden (RSAC/Gartner/Forrester + 43 NL-classics), klikbaar afstrepen, schud-knop, print-friendly.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>Vendor-slogan-generator</b> — 16 adjectieven × 16 productcategorieën × 12 benefits × 9 taglines.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>APT-naamgenerator</b> — adjectief + dier per nationaliteit (CrowdStrike-stijl) + Microsoft-alias + confidence.</li>
+              <li><span class="cl-cat feat">FEAT</span> <b>CISO-excuses-generator</b> — 6-componenten Nederlandstalig statement.</li>
+            </ul>
+            <h4>Branding</h4>
+            <ul>
+              <li><span class="cl-cat feat">FEAT</span> Eigen amber/oranje accent (#f59e0b) ter onderscheid van CFM (rood).</li>
+              <li><span class="cl-cat feat">FEAT</span> Service-worker <code>cyber-hype-lab-v1</code>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+</body>
+</html>

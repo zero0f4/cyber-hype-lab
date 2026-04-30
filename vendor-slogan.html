@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor-slogan-generator — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+  <style>
+    .sat-output { background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; min-height: 90px; font-size: 18px; line-height: 1.55; color: var(--text-primary); }
+    .sat-output.lead { font-size: 22px; font-weight: 600; line-height: 1.4; text-align: center; }
+    .sat-output.lead .meta { display: block; font-size: 12px; color: var(--text-muted); margin-top: 12px; font-family: var(--font-mono); font-weight: 400; letter-spacing: 0.04em; }
+    .sat-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .sat-history { margin-top: 14px; }
+    .sat-history li { font-size: 12px; padding: 3px 0; color: var(--text-secondary); }
+    .section-table { width:100%; border-collapse: collapse; font-size: 13px; }
+    .section-table th { text-align: left; padding: 8px; background: var(--bg-elevated); border-bottom: 2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color: var(--text-muted); }
+    .section-table td { padding: 8px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .satire-warn { font-size: 12px; color: var(--text-secondary); margin-bottom: 14px; padding: 10px 14px; background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.35); border-left: 3px solid #eab308; border-radius: var(--radius); }
+    .satire-warn strong { color: #eab308; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; margin-right: 6px; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">Vendor-slogan-generator</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">Vendor-slogan-generator</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">Vendor-slogan-generator</div>
+        <div class="page-subtitle">Random vendor-pitch in één klik · 16 adjectieven × 16 productcategorieën × 12 benefits × 9 taglines</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+    <div class="content-area">
+      <div class="manual-content">
+
+        <section class="manual-section">
+          <h2><span class="sec-num">01</span> Hoe werkt het</h2>
+          <p>Op één klik krijg je een willekeurig samengestelde vendor-slogan, opgebouwd uit vier pools: <b>twee adjectieven</b> + <b>productcategorie</b> + <b>benefit-zin</b> + een <b>tagline</b>. Combinaties: <b id="combos">—</b> unieke slogans mogelijk.</p>
+          <div class="sat-output lead" id="slog">Klik op "Genereer slogan"</div>
+          <div class="sat-toolbar">
+            <button class="btn" id="gen"><span data-icon="cycle" data-icon-size="14"></span> Genereer slogan</button>
+            <button class="btn" id="copy">Kopieer naar klembord</button>
+          </div>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">02</span> Geschiedenis (laatste 6)</h2>
+          <ul id="hist" style="list-style:none;padding-left:0;margin:0"></ul>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">03</span> De pools</h2>
+          <table class="section-table">
+            <thead><tr><th style="width:140px">Pool</th><th>Aantal</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><b>Adjectieven</b></td><td id="cAdj">—</td><td>AI-Powered, Agentic, Quantum-Ready, Self-Healing, Cloud-Native, …</td></tr>
+              <tr><td><b>Productcategorie</b></td><td id="cNoun">—</td><td>XDR Suite, Zero Trust Fabric, Cybersecurity Mesh, SOC Automation Cloud, …</td></tr>
+              <tr><td><b>Benefit</b></td><td id="cBen">—</td><td>at Unprecedented Scale, with 90% Less Alert Fatigue, Built for the AI Era, …</td></tr>
+              <tr><td><b>Tagline</b></td><td id="cTag">—</td><td>"Trust nothing. Verify everything." · "From Detection to Decision in Milliseconds." …</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</div>
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+
+<script>
+(function(){
+  const ADJ = ["AI-Powered","GenAI-Driven","Agentic","Autonomous","Self-Healing","Quantum-Ready","Cloud-Native","AI-Native","Next-Gen","Best-of-Breed","Hyper-Converged","Identity-First","Behavior-Aware","Threat-Informed","Zero Trust","Cybersecurity-Mesh-Ready","ML-Driven","Cloud-First","Frictionless","Continuously-Adaptive"];
+  const NOUN = ["Threat Hunting Platform","XDR Suite","Zero Trust Fabric","Cybersecurity Mesh","Detection & Response Engine","SOC Automation Cloud","Risk Intelligence Hub","Identity Defense Platform","Cyber Resilience Cloud","Security Data Lake","Exposure Management Suite","Threat Surface Manager","Posture Optimization Engine","Defender Workspace","Compliance Orchestrator","Adaptive Defense Platform"];
+  const BENEFIT = ["for Mission-Critical Workloads","at Unprecedented Scale","with 90% Less Alert Fatigue","Built for the AI Era","for Boardroom-Ready Cyber Resilience","to Future-Proof Your Security Stack","Built by ex-NSA Veterans","Trusted by Fortune 500","for the Hybrid Workforce","with Force-Multiplier Results","at the Speed of the Adversary","Across Every Layer of the Stack"];
+  const TAG = ["Trust nothing. Verify everything.","Defense in Depth, Reimagined.","From Detection to Decision in Milliseconds.","Because the Adversary Never Sleeps.","Where AI Meets Adversarial Resilience.","One Platform. Total Visibility.","Outpace the Threat.","Stop Breaches Before They Start.","Securing What's Next."];
+  const out = document.getElementById('slog');
+  const hist = document.getElementById('hist');
+  const log = [];
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+  function render(){
+    const a = pick(ADJ), b = pick(ADJ), n = pick(NOUN), c = pick(BENEFIT), t = pick(TAG);
+    const slogan = a + ' ' + b + ' ' + n + ' ' + c;
+    out.innerHTML = '"' + slogan + '"<span class="meta">— ' + t + '</span>';
+    log.unshift(slogan);
+    if (log.length > 6) log.pop();
+    hist.innerHTML = log.map(l => '<li>· ' + l + '</li>').join('');
+  }
+  document.getElementById('gen').addEventListener('click', render);
+  document.getElementById('copy').addEventListener('click', () => {
+    const text = out.innerText;
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => {
+      const b = document.getElementById('copy'); const old = b.textContent; b.textContent = 'Gekopieerd ✓'; setTimeout(()=>b.textContent=old, 1500);
+    });
+  });
+  document.getElementById('cAdj').textContent = ADJ.length;
+  document.getElementById('cNoun').textContent = NOUN.length;
+  document.getElementById('cBen').textContent = BENEFIT.length;
+  document.getElementById('cTag').textContent = TAG.length;
+  document.getElementById('combos').textContent = (ADJ.length * (ADJ.length-1) * NOUN.length * BENEFIT.length * TAG.length).toLocaleString('nl-NL');
+  render();
+})();
+</script>
+
+</body>
+</html>

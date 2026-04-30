@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patch-excuses Bingo — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+  <style>
+    .sat-output { background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; min-height: 90px; font-size: 18px; line-height: 1.55; color: var(--text-primary); }
+    .sat-output.lead { font-size: 22px; font-weight: 600; line-height: 1.4; text-align: center; }
+    .sat-output.lead .meta { display: block; font-size: 12px; color: var(--text-muted); margin-top: 12px; font-family: var(--font-mono); font-weight: 400; letter-spacing: 0.04em; }
+    .sat-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .sat-history li { font-size: 12px; padding: 3px 0; color: var(--text-secondary); }
+    .section-table { width:100%; border-collapse: collapse; font-size: 13px; }
+    .section-table th { text-align: left; padding: 8px; background: var(--bg-elevated); border-bottom: 2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color: var(--text-muted); }
+    .section-table td { padding: 8px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .satire-warn { font-size: 12px; color: var(--text-secondary); margin-bottom: 14px; padding: 10px 14px; background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.45); border-left: 3px solid #f59e0b; border-radius: var(--radius); }
+    .satire-warn strong { color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; margin-right: 6px; }
+    
+    .bingo-card { background: var(--bg-surface); border: 2px solid var(--accent); border-radius: 12px; padding: 18px; box-shadow: var(--shadow-md); }
+    .bingo-title-bar { text-align: center; padding-bottom: 10px; border-bottom: 2px dashed var(--accent); margin-bottom: 14px; }
+    .bingo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .bingo-cell { aspect-ratio: 1 / 0.85; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-base); padding: 8px 6px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 11px; font-weight: 600; color: var(--text-primary); cursor: pointer; transition: all .15s; user-select: none; line-height: 1.25; word-break: break-word; }
+    .bingo-cell:hover { border-color: var(--accent); }
+    .bingo-cell.marked { background: var(--accent); color: white; border-color: var(--accent); transform: scale(0.97); text-decoration: line-through; }
+    .bingo-cell.free { background: #94a3b8; color: white; border-color: #94a3b8; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      .topbar, #sidebar, .breadcrumb, .page-header, .back-home-mobile, .satire-warn, .sat-toolbar, .no-print, .nav-divider, header, footer { display:none !important; }
+      .bingo-card { border: 2px solid #111; box-shadow: none; }
+      .bingo-cell.marked { background:#111 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">Patch-excuses Bingo</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">Patch-excuses Bingo</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">Patch-excuses Bingo</div>
+        <div class="page-subtitle">Bingo-variant met "waarom hebben we niet gepatched?"-clichés</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+    <div class="content-area">
+      <div class="manual-content">
+
+        <section class="manual-section no-print">
+          <h2><span class="sec-num">01</span> Patch-excuses Bingo</h2>
+          <p>Variant op de Bullshit Bingo, maar nu de <em>"waarom hebben we niet gepatched?"</em>-editie. Print &amp; gebruik tijdens je volgende vulnerability-review-meeting. Bingo = winnaar betaalt de pizza.</p>
+        </section>
+        <section class="manual-section">
+          <div class="bingo-card">
+            <div class="bingo-title-bar">
+              <h3 style="margin:0;font-size:18px;color:var(--accent)">Patch-excuses Bingo</h3>
+              <div style="font-size:11px;color:var(--text-muted);margin-top:4px;font-family:var(--font-mono)">Streep door wat in de meeting valt</div>
+            </div>
+            <div class="bingo-grid" id="grid"></div>
+            <div style="text-align:center;margin-top:12px;font-size:11px;color:var(--text-muted);font-family:var(--font-mono)" id="seed"></div>
+          </div>
+          <div class="sat-toolbar no-print">
+            <button class="btn" id="shuffle"><span data-icon="cycle" data-icon-size="14"></span> Schud kaart</button>
+            <button class="btn" id="reset">Vinkjes wissen</button>
+            <button class="btn" id="print"><span data-icon="print" data-icon-size="14"></span> Print</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</div>
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+
+<script>
+(function(){
+  const POOL = [
+    "Legacy systeem","Owner onbekend","Vendor support eindigt","Change-freeze","Te druk met audit","Patch breekt productie","Geen testomgeving","Geen budget","Wachten op leverancier","Compliance is OK","Gepland voor Q2","Gepland voor Q3","Risico is geaccepteerd","Patch is uitgebracht maar...","Beheerder is met vakantie","Wordt vervangen Q4","Workaround in plaats","Dependencies onduidelijk","Niet kritisch","Niemand gebruikt het meer","Down-time niet inplanbaar","Externe partij","Geen change-window","Documentatie ontbreekt","Eerst pilot doen","Backup-procedure onduidelijk","Mitigeert via WAF","Mitigeert via segmentatie","Kwetsbaarheid is theoretisch","Werkt met workaround","Reset bricked vorige keer","Niet in scope","Gepland in roadmap","Wacht op vendor-fix","Niet remote uit te voeren","Productie-pieken","Kerst-freeze","Zomer-freeze","CVSS lager dan 7","Niet KEV","Te hoog risico","Project loopt"
+  ];
+  const grid=document.getElementById('grid'),seedEl=document.getElementById('seed');
+  function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+  function render(){const seed=Math.random().toString(36).slice(2,8).toUpperCase();seedEl.textContent='Kaart '+seed+' · '+new Date().toLocaleDateString('nl-NL');const picks=shuffle(POOL).slice(0,24);let html='';for(let i=0;i<25;i++){if(i===12){html+='<div class="bingo-cell free" data-free="1">PATCH<br>NEXT<br>QUARTER</div>'}else{const idx=i<12?i:i-1;html+='<div class="bingo-cell">'+picks[idx]+'</div>'}}grid.innerHTML=html}
+  grid.addEventListener('click',e=>{const c=e.target.closest('.bingo-cell');if(!c||c.dataset.free)return;c.classList.toggle('marked')});
+  document.getElementById('shuffle').addEventListener('click',render);
+  document.getElementById('reset').addEventListener('click',()=>grid.querySelectorAll('.bingo-cell.marked').forEach(c=>c.classList.remove('marked')));
+  document.getElementById('print').addEventListener('click',()=>window.print());
+  render();
+})();
+</script>
+
+</body>
+</html>

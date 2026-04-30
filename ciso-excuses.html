@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CISO-excuses-generator — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+  <style>
+    .sat-output { background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; min-height: 90px; font-size: 18px; line-height: 1.55; color: var(--text-primary); }
+    .sat-output.lead { font-size: 22px; font-weight: 600; line-height: 1.4; text-align: center; }
+    .sat-output.lead .meta { display: block; font-size: 12px; color: var(--text-muted); margin-top: 12px; font-family: var(--font-mono); font-weight: 400; letter-spacing: 0.04em; }
+    .sat-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .sat-history { margin-top: 14px; }
+    .sat-history li { font-size: 12px; padding: 3px 0; color: var(--text-secondary); }
+    .section-table { width:100%; border-collapse: collapse; font-size: 13px; }
+    .section-table th { text-align: left; padding: 8px; background: var(--bg-elevated); border-bottom: 2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color: var(--text-muted); }
+    .section-table td { padding: 8px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .satire-warn { font-size: 12px; color: var(--text-secondary); margin-bottom: 14px; padding: 10px 14px; background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.35); border-left: 3px solid #eab308; border-radius: var(--radius); }
+    .satire-warn strong { color: #eab308; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; margin-right: 6px; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">CISO-excuses-generator</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">CISO-excuses-generator</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">CISO-excuses-generator</div>
+        <div class="page-subtitle">Random incident-statement in vendor-Nederlands — ideaal voor de eerstvolgende post-mortem</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+    <div class="content-area">
+      <div class="manual-content">
+
+        <section class="manual-section">
+          <h2><span class="sec-num">01</span> Het post-mortem-statement op één klik</h2>
+          <p>Random incident-statement opgebouwd uit zes componenten: <em>subject</em> + <em>werkwoord</em> + <em>dreiging</em> + <em>vector</em> + <em>bijzin</em> + <em>geruststelling</em>. Geheel volgens het stappenplan dat elke vendor en CISO al in zijn hoofd heeft zitten.</p>
+          <div class="sat-output" id="cisoOut" style="font-size:16px">Klik op "Genereer excuus"</div>
+          <div class="sat-toolbar">
+            <button class="btn" id="gen"><span data-icon="cycle" data-icon-size="14"></span> Genereer excuus</button>
+            <button class="btn" id="copy">Kopieer naar klembord</button>
+          </div>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">02</span> Eerder uitgesproken</h2>
+          <ul id="hist" style="list-style:none;padding-left:0;margin:0"></ul>
+        </section>
+        <section class="manual-section">
+          <h2><span class="sec-num">03</span> De zes componenten</h2>
+          <table class="section-table">
+            <thead><tr><th style="width:140px">Component</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><b>1. Subject</b></td><td>"Wij" / "Onze organisatie" / "Een beperkt aantal systemen"</td></tr>
+              <tr><td><b>2. Werkwoord</b></td><td>"…zijn doelwit geworden van" / "…werden getroffen door"</td></tr>
+              <tr><td><b>3. Dreiging</b></td><td>"…een geavanceerde nation-state actor" / "…een sophisticated dreigingsgroep"</td></tr>
+              <tr><td><b>4. Vector</b></td><td>"…via een tot dusver onbekende kwetsbaarheid in de toeleveringsketen"</td></tr>
+              <tr><td><b>5. Bijzin</b></td><td>"…dat onze bestaande beveiligingsmaatregelen omzeilde"</td></tr>
+              <tr><td><b>6. Geruststelling</b></td><td>"We hebben direct een toonaangevend IR-bureau ingeschakeld."</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:8px"><em>Vakkundig opgesteld in zes onderdelen die zelfs de slechtste taalkundige kan combineren tot een geloofwaardig statement.</em></p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</div>
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+
+<script>
+(function(){
+  const SUBJECT = ["We","Onze organisatie","Onze klanten","Een beperkt aantal systemen"];
+  const VERB = ["zijn doelwit geworden van","zijn geconfronteerd met","hebben te maken gehad met","werden getroffen door"];
+  const THREAT = ["een geavanceerde nation-state actor","een APT-cluster","een ongekend cybercrime-collectief","een sophisticated dreigingsgroep","een geavanceerde persistent threat","een zorgvuldig georkestreerde aanvalscampagne"];
+  const VECTOR = ["die gebruik maakte van een zero-day","via een tot dusver onbekende kwetsbaarheid in onze toeleveringsketen","door misbruik van een verkeerd geconfigureerde cloud-resource","via een doelgericht spear-phishing-incident","via een legacy-systeem dat buiten scope viel van onze patch-cyclus","door een gecompromitteerde derde partij","door een combinatie van human error en defense-in-depth-omzeiling"];
+  const CLAUSE = ["dat onze bestaande beveiligingsmaatregelen omzeilde","dat door geen enkele leverancier in de markt voorzien had kunnen worden","dat de strict geldende industrie-standaarden trotseerde","dat zelfs ons threat-intel-platform niet zag aankomen","dat de norm definieerde voor sophistication"];
+  const ASSURANCE = ["We hebben direct een toonaangevend incident-response-bureau ingeschakeld.","We werken nauw samen met de bevoegde autoriteiten.","Onze beveiligingscultuur is hierdoor naar het volgende niveau getild.","We assureren al onze klanten dat geen persoonsgegevens zijn buitgemaakt — voor zover thans bekend.","Dit is een wake-up call voor de hele sector.","We blijven trotse strategisch partner van onze klanten.","Cyber-veiligheid is en blijft onze top-prioriteit.","Wij hebben in deze geanonimiseerde, kortdurende verstoring een leerervaring gevonden."];
+  const out = document.getElementById('cisoOut');
+  const hist = document.getElementById('hist');
+  const log = [];
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+  function render(){
+    const s = pick(SUBJECT), v = pick(VERB), t = pick(THREAT), vec = pick(VECTOR), cl = pick(CLAUSE), as = pick(ASSURANCE);
+    const sentence = s + ' ' + v + ' ' + t + ' ' + vec + ', ' + cl + '. ' + as;
+    out.innerHTML = '"' + sentence + '"<br><span style="display:block;margin-top:14px;font-size:11px;color:var(--text-muted);font-family:var(--font-mono);text-align:right">— Niet-bestaande CISO, niet-bestaand incident, ' + new Date().getFullYear() + '</span>';
+    log.unshift(sentence.slice(0,80) + (sentence.length>80?'…':''));
+    if (log.length > 6) log.pop();
+    hist.innerHTML = log.map(l => '<li>· ' + l + '</li>').join('');
+  }
+  document.getElementById('gen').addEventListener('click', render);
+  document.getElementById('copy').addEventListener('click', () => {
+    const text = out.innerText;
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => {
+      const b = document.getElementById('copy'); const old = b.textContent; b.textContent = 'Gekopieerd ✓'; setTimeout(()=>b.textContent=old, 1500);
+    });
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>

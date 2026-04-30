@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waarom dit bestaat — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+  <style>
+    .section-table { width:100%; border-collapse: collapse; font-size: 13px; }
+    .section-table th { text-align: left; padding: 8px; background: var(--bg-elevated); border-bottom: 2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color: var(--text-muted); }
+    .section-table td { padding: 8px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .lead-quote { background: rgba(245,158,11,0.08); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: var(--radius); margin: 14px 0; font-style: italic; color: var(--text-secondary); }
+    .lead-quote .by { display: block; margin-top: 8px; font-style: normal; font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); letter-spacing: 0.04em; }
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 12px; margin: 14px 0; }
+    .stat-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 14px; }
+    .stat-card .num { font-size: 22px; font-weight: 700; color: var(--accent); font-family: var(--font-mono); display: block; }
+    .stat-card .lbl { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">Waarom dit bestaat</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.</div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">Waarom dit bestaat</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">Waarom dit bestaat</div>
+        <div class="page-subtitle">De cyber-industrie heeft te veel praters en te weinig doeners — een kleine spiegel</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+
+    <div class="content-area">
+      <div class="manual-content">
+
+        <section class="manual-section">
+          <h2><span class="sec-num">01</span> Een probleem dat de industrie zelf niet meer ziet</h2>
+          <p>Cyber security heeft de afgelopen vijftien jaar een ongekende groei doorgemaakt. Begrijpelijk — de risico's zijn écht, de schade is reëel, en de behoefte aan goede mensen, processen en tooling is hoog. Maar diezelfde groei heeft een nevenproduct opgeleverd dat steeds harder begint te wringen: <strong>de hype is harder gaan praten dan het vak.</strong></p>
+          <p>Op LinkedIn, op RSAC, in Gartner-rapporten en in vendor-pitches stapelen de buzzwoorden zich op. <em>"AI-powered Zero Trust XDR with autonomous SOC capabilities for boardroom-ready cyber resilience."</em> Niemand weet meer precies wat het betekent — en dat is geen ongeluk, maar een feature van het verkoop-systeem.</p>
+          <div class="lead-quote">
+            "If you torture the data long enough, it will confess to anything."
+            <span class="by">— Ronald Coase, vaak vrij vertaald naar marketing-pitches in cyber security</span>
+          </div>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">02</span> Te veel praters, te weinig doeners</h2>
+          <p>Op een willekeurige werkdag in een SOC of bij een MSP zie je twee parallelle werelden:</p>
+          <table class="section-table">
+            <thead><tr><th style="width:50%">De wereld die je hoort</th><th>De wereld waarin het werk gebeurt</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>"We hebben een holistische, AI-gedreven detectie-pijplijn met force-multiplier-mogelijkheden voor de moderne SOC."</td>
+                <td>Iemand patcht om 02:14 een legacy-server omdat de change-window net dichtgaat en <code>winscp.exe</code> wordt gedetecteerd door iets wat een EDR moet zijn.</td>
+              </tr>
+              <tr>
+                <td>"Onze threat-informed defense reduceert MTTR met 90%."</td>
+                <td>Een analist klikt voor de zoveelste keer een phishing-alert weg en stelt vast dat MFA voor de derde keer dit kwartaal door dezelfde HR-medewerker is bypassed.</td>
+              </tr>
+              <tr>
+                <td>"Wij operationaliseren cyber-resilience door cross-functionele stakeholder-engagement."</td>
+                <td>De IT-coördinator van een MKB-bedrijf met 38 medewerkers probeert uit te leggen waarom het AVG-register écht bijgehouden moet worden, terwijl er nog 200 onbeheerde apparaten in het netwerk zitten.</td>
+              </tr>
+              <tr>
+                <td>"Sophisticated nation-state actor leveraging zero-day in the supply chain."</td>
+                <td>Phishing-mail. Wachtwoord uit een data-lek van 2017. Geen MFA. Drie jaar oud.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Dat tweede kolom-werk — patchen, alert-triage, beleid afdwingen, gebruikers trainen, rotzooi opruimen — is wat <em>cyber security</em> in de praktijk is. Het krijgt geen RSAC-keynote, geen LinkedIn-thread van 1500+ likes, en geen Gartner-rapport. Het krijgt overuren en burnout.</p>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">03</span> Buzzword-inflatie — een mini-economie</h2>
+          <p>De hype-economie heeft eigen regels:</p>
+          <ul>
+            <li><strong>Categorie-uitvinden als business-model.</strong> Een vendor die geen "leider" kan zijn in een bestaande Magic Quadrant verzint een nieuwe acroniem (XDR, CNAPP, ASPM, DSPM, SSPM, ...) en wordt automatisch "de eerste" in die nieuwe categorie. Gartner heeft inmiddels meer dan 50 actieve cyber-product-categorieën.</li>
+            <li><strong>AI-prefix als reset-knop.</strong> Wat in 2018 "machine learning-based" heette, in 2021 "behavior-based", werd in 2023 "AI-powered" en in 2025 "agentic AI" — vaak hetzelfde model, soms zelfs hetzelfde regel-systeem met een chatbot ervoor.</li>
+            <li><strong>Threat-FUD-inflatie.</strong> Iedere phishing-mail wordt een "geavanceerde campagne", iedere ransomware-affiliate een "sophisticated nation-state actor". Het verkoopt beter dan "iemand klikte iets aan".</li>
+            <li><strong>"Built by ex-NSA / ex-Mossad" als vertrouwens-shortcut.</strong> Alsof voormalige inlichtingen-mensen automatisch betere code schrijven dan iedereen anders.</li>
+            <li><strong>"Trusted by Fortune 500".</strong> Twee logo's op een slide, één POC, drie maanden voorzichtig, meestal onder NDA.</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat-card"><span class="num">~50+</span><span class="lbl">Actieve cyber-product-categorieën in Gartner Hype Cycle 2024-2026</span></div>
+            <div class="stat-card"><span class="num">~$300B</span><span class="lbl">Wereldwijde cyber-security-markt 2026 (Gartner-prognose)</span></div>
+            <div class="stat-card"><span class="num">~80%</span><span class="lbl">Van succesvolle aanvallen op MKB komt binnen via phishing of gestolen credentials zonder MFA (Verizon DBIR)</span></div>
+            <div class="stat-card"><span class="num">~3.5M</span><span class="lbl">Onvervulde cyber-security-vacatures wereldwijd (ISC2 Workforce Study)</span></div>
+          </div>
+          <p>De boodschap die deze cijfers samen vertellen: <strong>er wordt enorm veel verdiend aan iets wat nog steeds eindigt met "Janneke klikte op een link in haar e-mail".</strong></p>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">04</span> De RSAC-paradox</h2>
+          <p>Wandel een keer over de expo-floor van RSA Conference of Black Hat. Honderden vendors. Vrijwel allemaal claimen ze:</p>
+          <ul>
+            <li>De <em>enige</em> echt AI-gedreven oplossing te zijn.</li>
+            <li>Een <em>force multiplier</em> te zijn voor je SOC.</li>
+            <li>MTTD/MTTR met <em>90%</em> te reduceren — altijd 90%.</li>
+            <li>Door <em>Fortune 500</em> te zijn vertrouwd.</li>
+            <li><em>Trust nothing, verify everything</em> te leveren.</li>
+          </ul>
+          <p>Het kan logisch niet allemaal waar zijn. Toch wordt het allemaal gezegd. Toch wordt het allemaal verkocht. En toch bouwen we dáár ons mentale model van "wat cyber-security is" op — terwijl de échte mensen die het werk doen al lang geen tijd meer hebben om langs zo'n stand te lopen.</p>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">05</span> Wat dit project niet is</h2>
+          <ul>
+            <li><strong>Geen anti-vendor-tirade.</strong> Veel vendors maken legitiem goede tooling waar échte teams écht baat bij hebben. EDR, SIEM, ZTNA, MFA-platformen — die zijn niet het probleem.</li>
+            <li><strong>Geen anti-marketing-tirade.</strong> Marketing op zich is prima. Het wordt alleen problematisch als het de werkelijkheid gaat vervangen — en dat doet het inmiddels regelmatig.</li>
+            <li><strong>Geen "cyber is een hoax"-praat.</strong> De dreigingen zijn echt. De impact is groot. Daarom is helderheid juist zo belangrijk.</li>
+          </ul>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">06</span> Wat dit project wél is</h2>
+          <p>Een kleine spiegel — meer niet. Een verzameling absurd makende generators die de patronen blootleggen door ze te overdrijven:</p>
+          <ul>
+            <li><strong>Bullshit Bingo</strong> — als je het in tien minuten kunt vinden in een keynote, is het waarschijnlijk hol.</li>
+            <li><strong>Patch-excuses Bingo</strong> — humor als pijnstiller voor de ongepatchte werkelijkheid.</li>
+            <li><strong>Vendor-slogan / product-naam / conference-talk</strong> — laat zien hoe makkelijk de pitches genereerbaar zijn, en daarom hoe weinig informatie ze bevatten.</li>
+            <li><strong>APT-namen / CISO-excuses / LinkedIn-post</strong> — de drie genres die elke incident-week domineren, met dezelfde onderdelen, in dezelfde volgorde.</li>
+            <li><strong>Sci-fi-quotes</strong> — soms is het nuttig om een onderwerp <em>niet</em> serieus te nemen, om er beter naar te kijken.</li>
+          </ul>
+          <p>De impliciete oproep: schaak terug. Lees minder LinkedIn-thought-leadership en meer post-mortems. Spendeer minder geld aan dashboards en meer tijd aan oefeningen. Stel minder roadmap-pitches op en patch meer kwetsbaarheden. <em>Wees minder een prater, meer een doener.</em></p>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">07</span> Wat de doeners echt doen</h2>
+          <p>Als je vandaag iets nuttigs wilt doen voor je organisatie — geen buzzwoord, geen Gartner-categorie, geen consultancy-pitch:</p>
+          <ol>
+            <li><strong>MFA op alles.</strong> Voorkomt 99,9% van automated attacks (Microsoft-data). Onderbenut bij MKB.</li>
+            <li><strong>Patch wat aan internet hangt.</strong> Volg CISA KEV. Klaar binnen 14 dagen — niet "in de roadmap voor Q3".</li>
+            <li><strong>Backups die werken.</strong> 3-2-1-1-0. Test de restore. Anders is het geen backup.</li>
+            <li><strong>Logging dat je leest.</strong> Liever 10 alerts die je doorneemt dan 10.000 die je negeert.</li>
+            <li><strong>Awareness die niet pruttelt.</strong> Geen jaarlijkse e-learning waar mensen doorheen klikken — wel realistische phishing-simulaties zonder schaamte-cultuur bij klikken.</li>
+            <li><strong>Een IR-plan op papier.</strong> Niet morgen om 03:00 voor het eerst nadenken over wie de officier van justitie belt.</li>
+          </ol>
+          <p>Geen van bovenstaande staat in een Magic Quadrant. Allemaal verlagen ze het risico meer dan het volgende AI-platform.</p>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">08</span> Verder lezen — de critici en realisten</h2>
+          <p>Voor wie minder hype en meer substantie wil:</p>
+          <ul>
+            <li><a href="https://www.schneier.com/" target="_blank" style="color:var(--accent)">Bruce Schneier</a> — <em>"security theater"</em>; al twee decennia consequent kritisch op marketing-driven security.</li>
+            <li><a href="https://www.philvenables.com/" target="_blank" style="color:var(--accent)">Phil Venables</a> — voormalig Goldman Sachs / Google CISO, nuchter, zonder buzzword-overschot.</li>
+            <li><a href="https://kellyshortridge.com/" target="_blank" style="color:var(--accent)">Kelly Shortridge</a> — <em>"Security Chaos Engineering"</em>; vraagt om praktische, vriendelijke security in plaats van controle-theater.</li>
+            <li><a href="https://danielmiessler.com/" target="_blank" style="color:var(--accent)">Daniel Miessler — Unsupervised Learning</a> — wekelijkse newsletter zonder vendor-pitch.</li>
+            <li><a href="https://cisoseries.com/" target="_blank" style="color:var(--accent)">CISO Series podcast</a> — heeft een vaste "BS Bingo"-segment waarin vendors wordt geleerd hun eigen jargon te herkennen.</li>
+            <li><a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" style="color:var(--accent)">Verizon DBIR</a> — jaarlijks data-rapport dat het verschil tussen marketing-narratief en werkelijke incidenten kalm laat zien.</li>
+            <li><a href="https://www.troyhunt.com/" target="_blank" style="color:var(--accent)">Troy Hunt (HaveIBeenPwned)</a> — pragmatisch, doet meer voor de baseline-hygiëne dan honderd thought-leaders.</li>
+          </ul>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">09</span> Tot slot</h2>
+          <div class="lead-quote">
+            "Het belangrijkste cyber-security-werk wordt gedaan door mensen die nooit op LinkedIn posten."
+            <span class="by">— Ergens, ooit, vermoedelijk in een SOC om 03:14, niet door een thought-leader</span>
+          </div>
+          <p>Lach er een keer hartelijk om met een gegenereerde slogan, deel een bingo-kaart met je collega, en ga daarna terug naar het echte werk: <strong>basismaatregelen, oefeningen, post-mortems, mensen helpen.</strong> Dat is het vak.</p>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:18px"><em>— De maker, met respect voor iedereen die om 03:00 alerts triagieert in plaats van slides bouwt.</em></p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</div>
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+</body>
+</html>

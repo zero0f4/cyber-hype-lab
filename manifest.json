@@ -1,0 +1,10 @@
+{
+  "name": "Cyber Hype Lab",
+  "short_name": "CHL",
+  "description": "Cyber Hype Lab — vendor-satire generators voor RSAC, Gartner-keynotes en LinkedIn-bingo",
+  "start_url": "home.html",
+  "display": "standalone",
+  "background_color": "#0b0d12",
+  "theme_color": "#f59e0b",
+  "icons": []
+}

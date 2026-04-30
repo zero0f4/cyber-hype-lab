@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sci-fi Cyber-Quote Generator — Cyber Hype Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CHL">
+  <meta name="theme-color" content="#f59e0b">
+  <script src="theme.js"></script>
+  <style>
+    .sat-output { background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 22px; min-height: 100px; font-size: 22px; line-height: 1.45; color: var(--text-primary); text-align: center; font-style: italic; }
+    .sat-output .franchise { display: block; font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.18em; color: var(--accent); font-style: normal; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
+    .sat-output .quote { display: block; }
+    .sat-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .sat-history li { font-size: 12px; padding: 4px 0; color: var(--text-secondary); }
+    .section-table { width:100%; border-collapse: collapse; font-size: 13px; }
+    .section-table th { text-align: left; padding: 8px; background: var(--bg-elevated); border-bottom: 2px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color: var(--text-muted); }
+    .section-table td { padding: 8px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .satire-warn { font-size: 12px; color: var(--text-secondary); margin-bottom: 14px; padding: 10px 14px; background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.45); border-left: 3px solid #f59e0b; border-radius: var(--radius); }
+    .satire-warn strong { color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; margin-right: 6px; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu openen"><span data-icon="menu" data-icon-size="20"></span></button>
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon" data-icon="flag" data-icon-size="20"></span>
+        <span class="logo-text"><strong>CHL</strong> Cyber Hype Lab</span>
+      </div>
+      <div class="version-badge">Sci-fi-quotes</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="home"></span> Homepagina</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Bingo</div>
+      <a href="bingo.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Bullshit Bingo</a>
+      <a href="patch-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Patch-excuses Bingo</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Vendor-marketing</div>
+      <a href="vendor-slogan.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Slogan-generator</a>
+      <a href="product-naam.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> Product-naam-generator</a>
+      <a href="conference-talk.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="template"></span> Conference-talk-titel</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Personen</div>
+      <a href="apt-namen.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="actor"></span> APT-naamgenerator</a>
+      <a href="ciso-excuses.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="flag"></span> CISO-excuses</a>
+      <a href="linkedin-post.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="eye"></span> LinkedIn-post</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Pop culture</div>
+      <a href="scifi.html" class="nav-item active" style="text-decoration:none"><span class="nav-icon" data-icon="diamond"></span> Sci-fi-quotes</a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Naslag</div>
+      <a href="waarom.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Waarom dit bestaat</a>
+      <a href="handleiding.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="manual"></span> Handleiding</a>
+      <a href="changelog.html" class="nav-item" style="text-decoration:none"><span class="nav-icon" data-icon="info"></span> Wijzigingsblad</a>
+    </nav>
+    <div class="sidebar-frameworks">
+      <div class="sidebar-hint">
+        Pure satire op de cyber-industrie. Niets serieus — niet als bron citeren.
+      </div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Wissel licht/donker thema">
+        <span class="theme-toggle-icon" data-icon="theme-dark"></span>
+        <span class="theme-toggle-label">Donker thema</span>
+      </button>
+    </div>
+  </aside>
+
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html"><span data-icon="home" data-icon-size="14"></span> Home</a>
+      <span class="crumb-sep" data-icon="chevron-right" data-icon-size="12"></span>
+      <span class="crumb-current">Sci-fi Cyber-Quote Generator</span>
+    </nav>
+    <div class="page-header">
+      <div>
+        <div class="page-title">Sci-fi Cyber-Quote Generator</div>
+        <div class="page-subtitle">Star Wars · Star Trek · Firefly · Spaceballs &mdash; vermengd met cyber-jargon</div>
+      </div>
+    </div>
+    <a href="home.html" class="back-home-mobile"><span data-icon="arrow-left" data-icon-size="16"></span> Terug naar home</a>
+
+    <div class="content-area">
+      <div class="manual-content">
+        <section class="manual-section">
+          <h2><span class="sec-num">01</span> Hoe werkt het</h2>
+          <p>Random quote uit één van vier <em>franchises</em> (Star Wars, Star Trek, Firefly, Spaceballs), automatisch verrijkt met cyber-buzzwoorden, threat-actor-namen, vendor-tools en aanvalstechnieken uit dezelfde pools die de andere CHL-generators gebruiken.</p>
+          <div class="sat-output" id="qOut">Klik op "Nieuwe quote"</div>
+          <div class="sat-toolbar">
+            <button class="btn" id="gen"><span data-icon="cycle" data-icon-size="14"></span> Nieuwe quote</button>
+            <button class="btn" id="copy">Kopieer</button>
+            <button class="btn" id="filterSW">⭐ Star Wars</button>
+            <button class="btn" id="filterST">🖖 Star Trek</button>
+            <button class="btn" id="filterFF">🚀 Firefly</button>
+            <button class="btn" id="filterSB">🎬 Spaceballs</button>
+            <button class="btn" id="filterAll">Alle franchises</button>
+          </div>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">02</span> Eerder gehoord</h2>
+          <ul id="hist" style="list-style:none;padding-left:0;margin:0"></ul>
+        </section>
+
+        <section class="manual-section">
+          <h2><span class="sec-num">03</span> De vier franchises</h2>
+          <table class="section-table">
+            <thead><tr><th style="width:140px">Franchise</th><th>Hoeveelheid templates</th><th>Voorbeeld</th></tr></thead>
+            <tbody>
+              <tr><td><b>Star Wars</b></td><td id="cSW">—</td><td>"I find your lack of MFA disturbing."</td></tr>
+              <tr><td><b>Star Trek</b></td><td id="cST">—</td><td>"Resistance to ransomware is futile."</td></tr>
+              <tr><td><b>Firefly</b></td><td id="cFF">—</td><td>"Curse your sudden but inevitable supply-chain compromise!"</td></tr>
+              <tr><td><b>Spaceballs</b></td><td id="cSB">—</td><td>"1-2-3-4-5! That's the same password as on my luggage!"</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:8px"><em>Tags <code>{buzz}</code>, <code>{apt}</code>, <code>{tool}</code>, <code>{attack}</code>, <code>{ioc}</code>, <code>{ctrl}</code> worden ingevuld uit dezelfde pools als de andere CHL-generators.</em></p>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="icons.js"></script>
+<script src="menu.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+<script>
+(function(){
+  const BUZZ = ["Zero Trust","AI-driven detection","quantum-ready encryption","XDR","SASE","Defense in Depth","threat-informed defense","Agentic AI","cloud-native security","cyber resilience","posture management","autonomy"];
+  const APT = ["Fancy Bear","Cozy Bear","Lazarus","Wicked Panda","Charming Kitten","Midnight Blizzard","Sandstorm","Volt Typhoon","Spider","Sleet"];
+  const TOOL = ["Cobalt Strike","Mimikatz","BloodHound","Defender for Endpoint","CrowdStrike Falcon","Sentinel","BloodHound","SIEM","SOAR","EDR","WAF","ZTNA-fabric"];
+  const ATTACK = ["ransomware","supply-chain compromise","BEC","spear-phishing","credential-stuffing","watering hole","exfiltration","double extortion","DDoS","BlueKeep","RCE","privilege escalation"];
+  const IOC = ["IOC","hash","C2 beacon","domain","JA3-fingerprint","artifact","signature","alert","anomaly"];
+  const CTRL = ["MFA","patching","EDR","backups","logging","DLP","ZTNA","conditional access","application allow-list","segmentation","SOC","incident response"];
+
+  const SW = [
+    "May the {buzz} be with you.",
+    "These aren't the {ioc}s you're looking for.",
+    "I find your lack of {ctrl} disturbing.",
+    "Help me, {tool} — you're my only hope.",
+    "Do or do not. There is no {ctrl}.",
+    "It's a trap! Classic {attack}.",
+    "Stay on target... the {attack} is closing.",
+    "The {apt} are stronger than I anticipated.",
+    "From a certain point of view, this {ioc} is benign.",
+    "I have a bad feeling about this {ioc}.",
+    "Search your feelings — you know the {tool} is misconfigured.",
+    "This is the way... to enable {ctrl} on every endpoint."
+  ];
+
+  const ST = [
+    "Resistance to {attack} is futile.",
+    "Highly illogical: a production system without {ctrl}.",
+    "Captain, our sensors detect elevated {ioc} levels in sector seven.",
+    "Beam me up — the {attack} is detonating.",
+    "Set phasers to isolate. We've got an active {apt} beacon.",
+    "Engage {ctrl} on all decks!",
+    "Live long and patch promptly.",
+    "Khan! He used a {attack} against us!",
+    "Make it so: {ctrl} for the entire fleet by stardate 2026.6.",
+    "Computer, run a Level-One {tool} sweep on the entire bridge.",
+    "Tea. Earl Grey. Hot. And one freshly rotated {ctrl} key.",
+    "We are the {apt}. Lower your shields and surrender your data."
+  ];
+
+  const FF = [
+    "Curse your sudden but inevitable {attack}!",
+    "I aim to misbehave — but only with audit logging enabled.",
+    "Reavers are coming, and they brought {apt}.",
+    "Shiny: a properly segmented {ctrl}.",
+    "We've got people on the inside — classic {attack}.",
+    "Big damn heroes, sir. Just rolled out {tool} fleet-wide.",
+    "There ain't people enough in 'verse to make me trust an unpatched {tool}.",
+    "Every man there going to die. Patch your {tool}, ya pi gu.",
+    "I swear by my pretty floral bonnet, I will end you — and your {apt} campaign.",
+    "Don't worry — Kaylee says the {tool} will hold... probably."
+  ];
+
+  const SB = [
+    "I see your Schwartz is as big as mine — but my {tool} is faster.",
+    "We've got Lone Starr surrounded by {tool} beacons!",
+    "Ludicrous speed... GO! Now run that {tool} scan.",
+    "Comb the desert with {tool} sweeps!",
+    "1-2-3-4-5! That's the same {ctrl} I've been using since '87!",
+    "Spaceball One — they've gone to plaid {attack}!",
+    "Dark Helmet loves nothing more than schwartz-ring {ioc} detection.",
+    "Why are we always at maximum {attack}?",
+    "Out of order? Even the {tool} is out of order?!",
+    "May the Schwartz be with your {ctrl}-policy."
+  ];
+
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+  function fill(t){
+    return t
+      .replace(/\{buzz\}/g, pick(BUZZ))
+      .replace(/\{apt\}/g, pick(APT))
+      .replace(/\{tool\}/g, pick(TOOL))
+      .replace(/\{attack\}/g, pick(ATTACK))
+      .replace(/\{ioc\}/g, pick(IOC))
+      .replace(/\{ctrl\}/g, pick(CTRL));
+  }
+
+  const out = document.getElementById('qOut');
+  const hist = document.getElementById('hist');
+  const log = [];
+  let activeFranchise = null; // null = all
+
+  function render(){
+    let pools;
+    let label;
+    if (activeFranchise === 'SW') { pools = SW; label = 'STAR WARS'; }
+    else if (activeFranchise === 'ST') { pools = ST; label = 'STAR TREK'; }
+    else if (activeFranchise === 'FF') { pools = FF; label = 'FIREFLY'; }
+    else if (activeFranchise === 'SB') { pools = SB; label = 'SPACEBALLS'; }
+    else {
+      const choice = Math.floor(Math.random() * 4);
+      if (choice === 0) { pools = SW; label = 'STAR WARS'; }
+      else if (choice === 1) { pools = ST; label = 'STAR TREK'; }
+      else if (choice === 2) { pools = FF; label = 'FIREFLY'; }
+      else { pools = SB; label = 'SPACEBALLS'; }
+    }
+    const tpl = pick(pools);
+    const quote = fill(tpl);
+    out.innerHTML = '<span class="franchise">' + label + '</span><span class="quote">"' + quote + '"</span>';
+    log.unshift('[' + label + '] ' + quote);
+    if (log.length > 8) log.pop();
+    hist.innerHTML = log.map(l => '<li>· ' + l + '</li>').join('');
+  }
+
+  document.getElementById('gen').addEventListener('click', render);
+  document.getElementById('copy').addEventListener('click', () => {
+    if (navigator.clipboard) navigator.clipboard.writeText(out.innerText).then(() => {
+      const b = document.getElementById('copy'); const old = b.textContent; b.textContent = 'Gekopieerd ✓'; setTimeout(()=>b.textContent=old, 1500);
+    });
+  });
+  document.getElementById('filterSW').addEventListener('click', ()=>{ activeFranchise='SW'; render(); });
+  document.getElementById('filterST').addEventListener('click', ()=>{ activeFranchise='ST'; render(); });
+  document.getElementById('filterFF').addEventListener('click', ()=>{ activeFranchise='FF'; render(); });
+  document.getElementById('filterSB').addEventListener('click', ()=>{ activeFranchise='SB'; render(); });
+  document.getElementById('filterAll').addEventListener('click', ()=>{ activeFranchise=null; render(); });
+  document.getElementById('cSW').textContent = SW.length;
+  document.getElementById('cST').textContent = ST.length;
+  document.getElementById('cFF').textContent = FF.length;
+  document.getElementById('cSB').textContent = SB.length;
+  render();
+})();
+</script>
+</body>
+</html>
